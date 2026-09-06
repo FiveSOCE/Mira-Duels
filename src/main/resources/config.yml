@@ -1,0 +1,2 @@
+# How long incoming duel requests remain valid.
+challenge-seconds: 60
