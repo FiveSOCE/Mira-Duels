@@ -347,14 +347,14 @@ public final class MiraDuelsPlugin extends JavaPlugin implements Listener, Comma
                                GameMode gameMode, double health, int food, float saturation, int level, float exp) {
         static PlayerState capture(Player p) {
             return new PlayerState(cloneArray(p.getInventory().getStorageContents()), cloneArray(p.getInventory().getArmorContents()),
-                    clone(p.getInventory().getItemInOffHand()), p.getLocation().clone(), p.getGameMode(), p.getHealth(),
+                    MiraDuelsPlugin.clone(p.getInventory().getItemInOffHand()), p.getLocation().clone(), p.getGameMode(), p.getHealth(),
                     p.getFoodLevel(), p.getSaturation(), p.getLevel(), p.getExp());
         }
         void restore(Player p) {
             p.getInventory().clear();
             p.getInventory().setStorageContents(cloneArray(storage));
             p.getInventory().setArmorContents(cloneArray(armor));
-            p.getInventory().setItemInOffHand(clone(offhand));
+            p.getInventory().setItemInOffHand(MiraDuelsPlugin.clone(offhand));
             p.setGameMode(gameMode);
             p.setHealth(Math.min(health, p.getAttribute(org.bukkit.attribute.Attribute.MAX_HEALTH).getValue()));
             p.setFoodLevel(food);
@@ -366,7 +366,7 @@ public final class MiraDuelsPlugin extends JavaPlugin implements Listener, Comma
         }
         private static ItemStack[] cloneArray(ItemStack[] input) {
             ItemStack[] copy = new ItemStack[input.length];
-            for (int i = 0; i < input.length; i++) copy[i] = clone(input[i]);
+            for (int i = 0; i < input.length; i++) copy[i] = MiraDuelsPlugin.clone(input[i]);
             return copy;
         }
     }
