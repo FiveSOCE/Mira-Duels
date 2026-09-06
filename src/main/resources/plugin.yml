@@ -1,0 +1,21 @@
+name: MiraDuels
+version: ${version}
+main: gg.mira.duels.MiraDuelsPlugin
+api-version: '1.21'
+author: FiveSOCE
+description: Restorable 1v1 duels using staff-configured kits and arena spawns.
+depend: [MiraCore]
+commands:
+  duel:
+    description: Challenge or respond to a 1v1 duel.
+    usage: /duel <player> [kit]
+    permission: miraduels.use
+  duelsadmin:
+    description: Configure duel kits and arena spawns.
+    usage: /duelsadmin <setkit|delkit|setspawn>
+    permission: miraduels.admin
+permissions:
+  miraduels.use:
+    default: true
+  miraduels.admin:
+    default: op
