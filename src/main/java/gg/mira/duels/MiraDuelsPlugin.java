@@ -7,11 +7,13 @@ import org.bukkit.command.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.projectiles.ProjectileSource;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -162,6 +164,28 @@ public final class MiraDuelsPlugin extends JavaPlugin implements Listener, Comma
         player.setFireTicks(0);
         player.getActivePotionEffects().forEach(effect -> player.removePotionEffect(effect.getType()));
         player.teleport(spawn);
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onDuelPvp(EntityDamageByEntityEvent event) {
+        if (!(event.getEntity() instanceof Player victim)) return;
+        Duel duel = active.get(victim.getUniqueId());
+        if (duel == null) return;
+
+        Player attacker = null;
+        if (event.getDamager() instanceof Player player) attacker = player;
+        else if (event.getDamager() instanceof org.bukkit.entity.Projectile projectile
+                && projectile.getShooter() instanceof Player player) attacker = player;
+
+        UUID opponentId = duel.one().equals(victim.getUniqueId()) ? duel.two() : duel.one();
+        if (attacker == null || !attacker.getUniqueId().equals(opponentId)) {
+            event.setCancelled(true);
+            return;
+        }
+
+        // Registered duel opponents are allowed to fight even if normal territory
+        // protection would block PvP at the configured duel arena.
+        event.setCancelled(false);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
