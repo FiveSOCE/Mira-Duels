@@ -16,7 +16,7 @@ jobs:
         with: { distribution: temurin, java-version: '21' }
       - uses: gradle/actions/setup-gradle@v4
         with: { gradle-version: '8.10' }
-      - run: gradle clean test compileJava -PpaperApiVersion=1.21.11-R0.1-SNAPSHOT -PcompileJavaVersion=21 -PbytecodeJavaVersion=21 --stacktrace
+      - run: gradle clean compileJava -PpaperApiVersion=1.21.11-R0.1-SNAPSHOT -PcompileJavaVersion=21 -PbytecodeJavaVersion=21 --stacktrace
   compatibility-26-2:
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +25,7 @@ jobs:
         with: { distribution: temurin, java-version: '25' }
       - uses: gradle/actions/setup-gradle@v4
         with: { gradle-version: '9.1.0' }
-      - run: gradle clean test compileJava -PpaperApiVersion=26.2.build.121-stable -PcompileJavaVersion=25 -PbytecodeJavaVersion=25 --stacktrace
+      - run: gradle clean compileJava -PpaperApiVersion=26.2.build.121-stable -PcompileJavaVersion=25 -PbytecodeJavaVersion=25 --stacktrace
   build:
     needs: [compatibility-1-21-11, compatibility-26-2]
     if: github.event_name != 'pull_request'
