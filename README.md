@@ -1,3 +1,9 @@
+## Download
+
+Latest compatibility release (v0.1.1):
+
+https://github.com/FiveSOCE/Mira-Duels/releases/download/v0.1.1/MiraDuels-0.1.1.jar
+
 # MiraDuels
 
 Configurable 1v1 duels with staff-defined kits and arena spawn points.
