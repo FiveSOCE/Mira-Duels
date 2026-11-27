@@ -1,3 +1,11 @@
+
+## Version-specific source branches
+
+- **Modern Paper 1.21.11 and newer:** [main](https://github.com/FiveSOCE/Mira-Duels/tree/main) (existing implementation, retained unchanged).
+- **Legacy Paper 1.18.2 / Java 17:** [compat/1.18.2](https://github.com/FiveSOCE/Mira-Duels/tree/compat/1.18.2) (migration branch, with an automated compile check).
+
+**Important:** The legacy branch explicitly targets the Paper 1.18.2 API, but runtime support and working release downloads are **not yet verified**. Do not substitute the modern JAR for the legacy version. The build workflow must pass and 1.18.2 server testing must be completed before this can be marked a supported release.
+
 # MiraDuels
 
 ## Download
