@@ -50,7 +50,7 @@ tasks.withType<JavaCompile>().configureEach {
     options.release.set(bytecodeJavaVersion.get())
 }
 
-tasks.jar { archiveFileName.set("MiraDuels-${project.version}.jar") }
+tasks.jar { archiveFileName.set("MiraDuels_1.18.2.jar") }
 
 tasks.processResources {
     filesMatching("plugin.yml") { expand("version" to project.version) }
