@@ -1,7 +1,7 @@
 name: MiraDuels
 version: ${version}
 main: gg.mira.duels.MiraDuelsPlugin
-api-version: '1.21'
+api-version: '1.18'
 author: FiveSOCE
 description: Restorable 1v1 duels using staff-configured kits and arena spawns.
 depend: [MiraCore]
