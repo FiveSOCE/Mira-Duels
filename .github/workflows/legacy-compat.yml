@@ -1,0 +1,29 @@
+name: Verify Paper 1.18.2 compatibility
+on:
+  push:
+    branches: ['compat/1.18.2']
+  pull_request:
+    branches: ['compat/1.18.2']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile-legacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10'
+      - name: Compile and test on Paper 1.18.2 API
+        run: gradle clean test build -PpaperApiVersion=1.18.2-R0.1-SNAPSHOT -PcompileJavaVersion=17 -PbytecodeJavaVersion=17 --stacktrace
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: legacy-1.18.2-unverified-runtime
+          path: build/libs/*.jar
+          if-no-files-found: error
