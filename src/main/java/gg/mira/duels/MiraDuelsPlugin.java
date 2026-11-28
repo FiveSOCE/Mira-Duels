@@ -158,7 +158,7 @@ public final class MiraDuelsPlugin extends JavaPlugin implements Listener, Comma
         if (contents.length >= 41) player.getInventory().setItemInOffHand(clone(contents[40]));
 
         player.setGameMode(GameMode.SURVIVAL);
-        player.setHealth(player.getAttribute(org.bukkit.attribute.Attribute.MAX_HEALTH).getValue());
+        player.setHealth(player.getAttribute(org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH).getValue());
         player.setFoodLevel(20);
         player.setSaturation(20F);
         player.setFireTicks(0);
@@ -356,7 +356,7 @@ public final class MiraDuelsPlugin extends JavaPlugin implements Listener, Comma
             p.getInventory().setArmorContents(cloneArray(armor));
             p.getInventory().setItemInOffHand(MiraDuelsPlugin.clone(offhand));
             p.setGameMode(gameMode);
-            p.setHealth(Math.min(health, p.getAttribute(org.bukkit.attribute.Attribute.MAX_HEALTH).getValue()));
+            p.setHealth(Math.min(health, p.getAttribute(org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH).getValue()));
             p.setFoodLevel(food);
             p.setSaturation(saturation);
             p.setLevel(level);
