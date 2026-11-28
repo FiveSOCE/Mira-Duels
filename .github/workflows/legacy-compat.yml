@@ -6,7 +6,7 @@ on:
     branches: ['compat/1.18.2']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   compile-legacy:
     runs-on: ubuntu-latest
@@ -33,3 +33,20 @@ jobs:
           name: legacy-1.18.2-unverified-runtime
           path: build/libs/*_1.18.2.jar
           if-no-files-found: error
+
+      - name: Publish Paper 1.18.2 development release
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/compat/1.18.2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          CURRENT=$(git ls-remote origin refs/heads/compat/1.18.2 | cut -f1)
+          if [ "$CURRENT" != "$GITHUB_SHA" ]; then
+            echo 'Outdated CI run; not publishing release.'
+            exit 0
+          fi
+          JAR=$(find build/libs -maxdepth 1 -type f -name '*_1.18.2.jar' | head -n 1)
+          test -s "$JAR"
+          gh release view dev-1.18.2 >/dev/null 2>&1 || gh release create dev-1.18.2 --prerelease --title 'Paper 1.18.2 development build' --notes 'Java 17 build, gameplay compatibility not yet fully verified.' --target "$GITHUB_SHA"
+          gh release upload dev-1.18.2 "$JAR" --clobber
