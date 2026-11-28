@@ -1,3 +1,8 @@
+# MiraDuels
+
+Restorable 1v1 duels using staff-configured kits and arena spawns.
+
+The sections below cover version-specific downloads, dependencies, commands, permissions and plugin features for the Mira server ecosystem.
 
 ## Downloads and compatibility
 
