@@ -1,12 +1,14 @@
 
-## Version-specific source branches
+## Downloads and compatibility
 
-- **Modern Paper 1.21.11 and newer:** [main](https://github.com/FiveSOCE/Mira-Duels/tree/main) (existing implementation, retained unchanged).
-- **Legacy Paper 1.18.2 / Java 17:** [compat/1.18.2](https://github.com/FiveSOCE/Mira-Duels/tree/compat/1.18.2) (migration branch, with an automated compile check).
+| Server target | Java | Final JAR name | Download |
+| --- | --- | --- | --- |
+| **Paper 1.18.2** | 17 | Not published | [Check legacy build artifacts](https://github.com/FiveSOCE/Mira-Duels/actions) — no direct release JAR verified |
+| **Paper 1.21.11–26.2** | Java 21 baseline; Paper 26.2 may require Java 25 | Not published | [Check releases](https://github.com/FiveSOCE/Mira-Duels/releases) |
 
-**Important:** The legacy branch explicitly targets the Paper 1.18.2 API, but runtime support and working release downloads are **not yet verified**. Do not substitute the modern JAR for the legacy version. The build workflow must pass and 1.18.2 server testing must be completed before this can be marked a supported release.
+Install only one versioned JAR. A successful compilation is not a guarantee of in-game feature compatibility.
 
-# MiraDuels
+[Legacy source](https://github.com/FiveSOCE/Mira-Duels/tree/compat/1.18.2) · [Modern source](https://github.com/FiveSOCE/Mira-Duels) · [All releases](https://github.com/FiveSOCE/Mira-Duels/releases)
 
 ## Download
 
@@ -38,3 +40,23 @@ Requires MiraCore.
 
 Release: https://github.com/FiveSOCE/Mira-Duels/releases/tag/v0.1.0
 SHA-256: `8e973e587e5c9a1d87fe1cbdf95b12953f6957682dd28f4464b5c0e7ece0e505`
+
+## Dependencies and installation
+
+- **Required:** MiraCore; matching Paper version and Java runtime.
+- **Optional integrations:** None declared.
+- Back up plugin data, remove old JARs, and restart after installing the appropriate release.
+
+## Permissions
+
+| Permission | Default | Description |
+| --- | --- | --- |
+| `miraduels.use` | true | Plugin permission |
+| `miraduels.admin` | op | Plugin permission |
+
+## Commands
+
+| Command | Purpose |
+| --- | --- |
+| `/duel` | Challenge or respond to a 1v1 duel. |
+| `/duelsadmin` | Configure duel kits and arena spawns. |
