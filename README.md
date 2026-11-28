@@ -2,28 +2,18 @@
 
 Restorable 1v1 duels using staff-configured kits and arena spawns.
 
-The sections below cover version-specific downloads, dependencies, commands, permissions and plugin features for the Mira server ecosystem.
-
 ## Downloads and compatibility
 
 | Server target | Java | Final JAR name | Download |
 | --- | --- | --- | --- |
 | **Paper 1.18.2** | 17 | `MiraDuels_1.18.2.jar` | [Download 1.18.2 JAR](https://github.com/FiveSOCE/Mira-Duels/releases/download/dev-1.18.2/MiraDuels_1.18.2.jar) |
-| **Paper 1.21.11–26.2** | Java 21 baseline; Paper 26.2 may require Java 25 | Not published | [Check releases](https://github.com/FiveSOCE/Mira-Duels/releases) |
+| **Paper 1.21.11–26.2** | Java 21 baseline; Paper 26.2 may require Java 25 | Not yet published | [Check releases](https://github.com/FiveSOCE/Mira-Duels/releases) |
 
-Install only one versioned JAR. A successful compilation is not a guarantee of in-game feature compatibility.
+**Build status:** Version-specific direct links are provided where published. A GitHub Actions or Releases link means the corresponding versioned JAR has not been verified. Compilation alone does not establish in-game compatibility; intermediate versions 1.19–1.21.10 remain unverified unless specifically documented.
+
+**Installation:** Back up plugin data, remove older JAR copies and install only the build matching your server. Never install both builds together.
 
 [Legacy source](https://github.com/FiveSOCE/Mira-Duels/tree/compat/1.18.2) · [Modern source](https://github.com/FiveSOCE/Mira-Duels) · [All releases](https://github.com/FiveSOCE/Mira-Duels/releases)
-
-## Download
-
-**Latest compatibility release: v0.1.1**
-
-[**Download MiraDuels-0.1.1.jar**](https://github.com/FiveSOCE/Mira-Duels/releases/download/v0.1.1/MiraDuels-0.1.1.jar)
-
-[View all releases](https://github.com/FiveSOCE/Mira-Duels/releases)
-
-Configurable 1v1 duels with staff-defined kits and arena spawn points.
 
 ## Players
 
