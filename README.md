@@ -8,7 +8,7 @@ The sections below cover version-specific downloads, dependencies, commands, per
 
 | Server target | Java | Final JAR name | Download |
 | --- | --- | --- | --- |
-| **Paper 1.18.2** | 17 | Not published | [Check legacy build artifacts](https://github.com/FiveSOCE/Mira-Duels/actions) — no direct release JAR verified |
+| **Paper 1.18.2** | 17 | `MiraDuels_1.18.2.jar` | [Download 1.18.2 JAR](https://github.com/FiveSOCE/Mira-Duels/releases/download/dev-1.18.2/MiraDuels_1.18.2.jar) |
 | **Paper 1.21.11–26.2** | Java 21 baseline; Paper 26.2 may require Java 25 | Not published | [Check releases](https://github.com/FiveSOCE/Mira-Duels/releases) |
 
 Install only one versioned JAR. A successful compilation is not a guarantee of in-game feature compatibility.
