@@ -11,9 +11,9 @@ repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
 }
 
-val miraCoreVersion = "0.5.3"
-val miraCoreSha256 = "b16b67a46e0c9e2860bfc770d05f63031fd2620bb9617d18ff4a6d69fa901601"
-val miraCoreJar = layout.projectDirectory.file("libs/MiraCore-$miraCoreVersion.jar").asFile
+val miraCoreVersion = "0.6.1-1.18.2"
+val miraCoreSha256 = "91a1aacad3f1249877afdd5381d83998c33251bf08a30711f2a15c580feaee39"
+val miraCoreJar = layout.projectDirectory.file("libs/MiraCore_1.18.2.jar").asFile
 
 fun sha256(file: File): String {
     val digest = MessageDigest.getInstance("SHA-256")
@@ -24,7 +24,7 @@ val downloadMiraCore by tasks.registering {
     doLast {
         if (!miraCoreJar.exists() || sha256(miraCoreJar) != miraCoreSha256) {
             miraCoreJar.parentFile.mkdirs()
-            URI("https://github.com/FiveSOCE/Mira-core/releases/download/v$miraCoreVersion/MiraCore-$miraCoreVersion.jar")
+            URI("https://github.com/FiveSOCE/Mira-core/releases/download/dev-1.18.2/MiraCore_1.18.2.jar")
                 .toURL().openStream().use { input ->
                     miraCoreJar.outputStream().use { output -> input.copyTo(output) }
                 }
